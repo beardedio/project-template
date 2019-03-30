@@ -1,14 +1,12 @@
 # Dev Enviroment
 
-This setup allows developers to run multiple websites on one machine using wild card domain names.
+This setup allows developers to run multiple websites on one machine using wild card domain names. This allows such domains as my-cool-project.test and myapp.test while they are reverse proxy'd to there correct docker containers.
 
 ## Prerequisites
 * Docker for Mac
 * Homebrew
-* dnsmasq
 * jq
 * moreutils (sponge)
-* jwilder/nginx-proxy docker container
 
 ## Setup
 Run the ./bin/setup-dnsmasq-mac.sh to setup dnsmasq and connect it to Docker for Mac.

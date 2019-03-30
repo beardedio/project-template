@@ -21,6 +21,7 @@ fi
 
 # Check if prerequisites are installed
 green "Checking for prerequisites"
+
 if [[ $(command -v brew) == "" ]]; then
     red "Hombrew is required to run this script, please install."
     yellow "To install go to https://brew.sh/"
@@ -30,12 +31,23 @@ else
     green "Updating Homebrew..."
     sudo -u "$real_user" brew update
 fi
+
+if [[ $(command -v jq) == "" ]]; then
+    red "jq is required to run this script, please install."
+    yellow "To install run 'brew install jq'"
+    exit 1
+fi
+
+if [[ $(command -v sponge) == "" ]]; then
+    red "sponge is required to run this script, please install."
+    yellow "To install run 'brew install moreutils'"
+    exit 1
+fi
+
 if [[ $(command -v docker) == "" ]]; then
     red "Docker for Mac is required to run this script, please install."
     yellow "To install go to https://docs.docker.com/docker-for-mac/install/"
     exit 1
-else
-    green "Docker Found!"
 fi
 
 
